@@ -2,3 +2,4 @@
 ^renv\.lock$
 ^RawdataQC\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$
