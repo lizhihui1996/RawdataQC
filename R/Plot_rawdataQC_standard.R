@@ -1,4 +1,3 @@
-library(ggplot2);library(ggthemes);library(gridExtra);library(ggsci)
 Plot_rawdataQC_standard <- function(data=data,xlab=xlab,ylab=ylab,
                                     changelabname=F,xlabname=xlabname,ylabname=ylabname,
                                     title=F,titlename=titlename,

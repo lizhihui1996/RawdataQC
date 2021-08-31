@@ -32,13 +32,10 @@
 #' @param text_size
 #' @param axis_title_size
 #'
-#' @return Plot of Rawdata standard QC-plot
+#' @return
 #' @export
 #'
 #' @examples
-#' library(RawdataQC)
-#' Plot_rawdataQC_standard(data=QC,xlab="library",ylab="gc_content",showsampletype=F,changelabname=T,xlabname="Sample",ylabname="GC",limit=46,axis_title_size=18,#axisx_size=6,title=T,titlename="AAA",showerrordetail=F,facet=T,showerror=T,showsample=T)
-
 Plot_rawdataQC_stack <- function(data=data,xlab=xlab,
                                  var1="exonic",var2="intronic",var3="intergenic",
                                  limit_var1=0.40,limit_var2=0.3,limit_var3=0.00,
@@ -196,5 +193,3 @@ Plot_rawdataQC_stack <- function(data=data,xlab=xlab,
               faillist =SummaryTable_total_reads_faillist,
               summary=SummaryTable_total_reads,
               failplot=failplot))}
-# 写完后，需要生成文档才能够真正使用
-devtools::document()
