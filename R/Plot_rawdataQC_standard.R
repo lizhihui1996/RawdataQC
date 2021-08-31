@@ -1,3 +1,38 @@
+#' Title
+#'
+#' @param data
+#' @param xlab
+#' @param ylab
+#' @param changelabname
+#' @param xlabname
+#' @param ylabname
+#' @param title
+#' @param titlename
+#' @param baralpha
+#' @param barwidth
+#' @param bar_pass_color
+#' @param bar_fail_color
+#' @param facet
+#' @param facet_label
+#' @param showsampletype
+#' @param sampletype_label
+#' @param showerror
+#' @param showsample
+#' @param limit
+#' @param limit_color
+#' @param limit_size
+#' @param axisx_size
+#' @param axisy_size
+#' @param text_size
+#' @param axis_title_size
+#' @param showerrordetail
+#' @param errordetail_color
+#' @param numberdig
+#'
+#' @return
+#' @export
+#'
+#' @examples
 Plot_rawdataQC_standard <- function(data=data,xlab=xlab,ylab=ylab,
                                     changelabname=F,xlabname=xlabname,ylabname=ylabname,
                                     title=F,titlename=titlename,
