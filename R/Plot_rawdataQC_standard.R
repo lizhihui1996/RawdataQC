@@ -28,6 +28,10 @@
 #' @param showerrordetail
 #' @param errordetail_color
 #' @param numberdig
+#' @import ggplot2
+#' @import ggthemes
+#' @import gridExtra
+#' @import ggsci
 #'
 #' @return
 #' @export

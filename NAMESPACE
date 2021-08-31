@@ -2,3 +2,7 @@
 
 export(Plot_rawdataQC_stack)
 export(Plot_rawdataQC_standard)
+import(ggplot2)
+import(ggsci)
+import(ggthemes)
+import(gridExtra)

@@ -35,9 +35,6 @@ Plot_rawdataQC_standard(
   numberdig = 3
 )
 }
-\arguments{
-\item{numberdig}{}
-}
 \value{
 
 }
