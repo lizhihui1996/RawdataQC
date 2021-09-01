@@ -98,10 +98,10 @@ Plot_rawdataQC_stack <- function(data = data, xlab = xlab,
   ## Plot Generation
   if (facet == T) {
     data_melt <- data[, c(xlab, facet_label, var1, var2, var3)]
-    data_melt <- melt(data_melt, id.vars = c(xlab, facet_label), variable.name = "Region")
+    data_melt <- reshape2::melt(data_melt, id.vars = c(xlab, facet_label), variable.name = "Region")
   } else {
     data_melt <- data[, c(xlab, var1, var2, var3)]
-    data_melt <- melt(data_melt, id.vars = c(xlab), variable.name = "Region")
+    data_melt <- reshape2::melt(data_melt, id.vars = c(xlab), variable.name = "Region")
   }
   data_melt$Region <- factor(data_melt$Region, levels = c(var3, var2, var1))
   data_melt$library <- factor(data_melt$library, levels = c(data_melt$library
@@ -151,10 +151,10 @@ Plot_rawdataQC_stack <- function(data = data, xlab = xlab,
     data_f_1 <- data[data[, which(colnames(data) == xlab)] %in% SummaryTable_total_reads_faillist[, 1], ]
     if (facet == T) {
       data_f_2 <- data_f_1[, c(xlab, facet_label, var1, var2, var3)]
-      data_f <- melt(data_f_2, id.vars = c(xlab, facet_label), variable.name = "Region")
+      data_f <- reshape2::melt(data_f_2, id.vars = c(xlab, facet_label), variable.name = "Region")
     } else {
       data_f_2 <- data_f_1[, c(xlab, var1, var2, var3)]
-      data_f <- melt(data_f_2, id.vars = c(xlab), variable.name = "Region")
+      data_f <- reshape2::melt(data_f_2, id.vars = c(xlab), variable.name = "Region")
     }
     data_f$Region <- factor(data_f$Region, levels = c(var3, var2, var1))
     data_f$library <- factor(data_f$library,
