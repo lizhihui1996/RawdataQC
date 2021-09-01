@@ -191,7 +191,7 @@ Plot_rawdataQC_standard <- function(data = data, xlab = xlab, ylab = ylab,
         x = get(xlab), y = max(get(ylab)) * 1.1,
         label = sprintf(paste0("%.", numberdig, "f"), get(ylab))
       ),
-      size = axisy_size * 0.1,
+      size = (axisy_size*0.1),
       color = errordetail_color,
       position = position_dodge(width = 0.9), show.legend = F
       )
