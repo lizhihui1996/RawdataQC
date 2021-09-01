@@ -12,13 +12,14 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Imports: 
-    ggplot2,
-    ggthemes,
-    gridExtra,
-    ggsci,
-    data.table
 Suggests: 
+    testthat (>= 3.0.0),
     covr
 Depends: 
-    R (>= 2.10)
+    gridExtra,
+    data.table,
+    R (>= 2.10),
+    ggsci,
+    ggthemes,
+    ggplot2
+Config/testthat/edition: 3
