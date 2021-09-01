@@ -23,7 +23,3 @@ Suggests:
     covr
 Depends: 
     R (>= 2.10)
-=======
-Imports: ggplot2,ggthemes,gridExtra,ggsci
-
->>>>>>> parent of e2e11bd (v-0.1)
