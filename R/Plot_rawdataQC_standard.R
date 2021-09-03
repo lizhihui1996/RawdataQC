@@ -28,6 +28,7 @@
 #' @param showerrordetail
 #' @param errordetail_color
 #' @param numberdig
+#' @param axisdetail_size
 #' @import ggplot2
 #' @import ggthemes
 #' @import gridExtra
@@ -46,7 +47,7 @@ Plot_rawdataQC_standard <- function(data = data, xlab = xlab, ylab = ylab,
                                     showsampletype = F, sampletype_label = "type",
                                     showerror = F, showsample = F,
                                     limit = limit, limit_color = "red", limit_size = 1,
-                                    axisx_size = 12, axisy_size = 16, text_size = 20, axis_title_size = 16,
+                                    axisx_size = 12, axisy_size = 16,axisdetail_size=6,text_size = 20, axis_title_size = 16,
                                     showerrordetail = T, errordetail_color = "black", numberdig = 3) {
   ## Data Prep
   data[, which(colnames(data) == xlab)] <- factor(data[, which(colnames(data) == xlab)],
@@ -191,7 +192,7 @@ Plot_rawdataQC_standard <- function(data = data, xlab = xlab, ylab = ylab,
         x = get(xlab), y = max(get(ylab)) * 1.1,
         label = sprintf(paste0("%.", numberdig, "f"), get(ylab))
       ),
-      size = axisy_size * 0.1,
+      size = axisdetail_size,
       color = errordetail_color,
       position = position_dodge(width = 0.9), show.legend = F
       )

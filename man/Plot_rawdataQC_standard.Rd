@@ -28,6 +28,7 @@ Plot_rawdataQC_standard(
   limit_size = 1,
   axisx_size = 12,
   axisy_size = 16,
+  axisdetail_size = 6,
   text_size = 20,
   axis_title_size = 16,
   showerrordetail = T,
