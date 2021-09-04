@@ -2,7 +2,7 @@
 % Please edit documentation in R/RawdataQC_standard.R
 \name{RawdataQC_standard}
 \alias{RawdataQC_standard}
-\title{Title}
+\title{中文}
 \usage{
 RawdataQC_standard(
   data = data,
@@ -43,5 +43,5 @@ RawdataQC_standard(
 
 }
 \description{
-Title
+中文
 }

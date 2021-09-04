@@ -1,4 +1,4 @@
-#' Title
+#' 中文
 #'
 #' @param data
 #' @param xlab
