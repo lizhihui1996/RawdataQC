@@ -38,7 +38,7 @@
 #' @return
 #' @export
 
-Plot_rawdataQC_stack <- function(data = data, xlab = xlab,
+RawdataQC_stack <- function(data = data, xlab = xlab,
                                  var1 = "exonic", var2 = "intronic", var3 = "intergenic",
                                  limit_var1 = 0.40, limit_var2 = 0.3, limit_var3 = 0.00,
                                  changelabname = F, xlabname = xlabname, ylabname = ylabname,

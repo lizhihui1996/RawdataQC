@@ -38,7 +38,7 @@
 #' @export
 #'
 #' @examples
-Plot_rawdataQC_standard <- function(data = data, xlab = xlab, ylab = ylab,
+RawdataQC_standard <- function(data = data, xlab = xlab, ylab = ylab,
                                     changelabname = F, xlabname = xlabname, ylabname = ylabname,
                                     title = F, titlename = titlename,
                                     baralpha = 0.5, barwidth = 0.8,
