@@ -2,17 +2,17 @@
 % Please edit documentation in R/RawdataQC_standard.R
 \name{RawdataQC_standard}
 \alias{RawdataQC_standard}
-\title{中文}
+\title{质控指标整理}
 \usage{
 RawdataQC_standard(
   data = data,
   xlab = xlab,
   ylab = ylab,
   changelabname = F,
-  xlabname = xlabname,
-  ylabname = ylabname,
+  xlabname = "",
+  ylabname = "",
   title = F,
-  titlename = titlename,
+  titlename = "",
   baralpha = 0.5,
   barwidth = 0.8,
   bar_pass_color = "#ACACAC",
@@ -23,13 +23,12 @@ RawdataQC_standard(
   sampletype_label = "type",
   showerror = F,
   showsample = F,
-  limit = limit,
+  limit = 0,
   limit_color = "red",
   limit_size = 1,
   axisx_size = 12,
   axisy_size = 16,
   axisdetail_size = 6,
-  text_size = 20,
   axis_title_size = 16,
   showerrordetail = T,
   errordetail_color = "black",
@@ -37,11 +36,68 @@ RawdataQC_standard(
 )
 }
 \arguments{
-\item{axisdetail_size}{}
+\item{data}{样本质控结果表格，数据框，必填，具体格式参考QC数据}
+
+\item{xlab}{可视化结果x轴，通常为样本，字符型，必填}
+
+\item{ylab}{可视化结果y轴，通常为待检测的指标，字符型，必填}
+
+\item{changelabname}{是否需要更改x轴，逻辑型（T or F)，选填，默认为F}
+
+\item{xlabname}{可视化结果x轴的新名字，字符型，选填，默认为“”}
+
+\item{ylabname}{可视化结果y轴的新名字，字符型，选填，默认为“”}
+
+\item{title}{可视化结果是否需要标题，逻辑型（T or F)，选填，默认为F}
+
+\item{titlename}{可视化结果标题，字符型，选填，默认为“”}
+
+\item{baralpha}{可视化结果柱状图透明度，整型，选填，默认为0.5}
+
+\item{barwidth}{可视化结果柱状图宽度，整型，选填，默认为0.8}
+
+\item{bar_pass_color}{可视化结果柱状图中合格样本颜色，字符型，选填，默认为"#ACACAC"（灰色）}
+
+\item{bar_fail_color}{可视化结果柱状图中合格样本颜色，字符型，选填，默认为"#D32F2E"（红色）}
+
+\item{facet}{可视化结果是否需要分面，逻辑型（T or F)，选填，默认为F}
+
+\item{facet_label}{可视化结果分面依据，字符型，如果facet=T，必填（如"batch"）}
+
+\item{showsampletype}{可视化结果是否需要区分样本类型，逻辑型（T or F)，选填，默认为F}
+
+\item{sampletype_label}{可视化结果是否区分样本类型的依据，字符型，如果showsampletype=T，必填（如"type"）}
+
+\item{showerror}{可视化结果下是否需要整理整体结果，逻辑型（T or F)，选填，默认为F}
+
+\item{showsample}{可视化结果的x轴内容是否显示，逻辑型（T or F)，选填，默认为F}
+
+\item{limit}{指标阈值，整型，选填，默认为0，若不设置，所有样本均合格}
+
+\item{limit_color}{指标阈线值颜色，字符型，选填，默认为"red"}
+
+\item{limit_size}{指标阈线值宽度，整型，选填，默认为1}
+
+\item{axisx_size}{可视化结果x轴字体大小，整型，选填，默认为12}
+
+\item{axisy_size}{可视化结果y轴字体大小，整型，选填，默认为16}
+
+\item{axisdetail_size}{可视化结果y轴字体大小，整型，选填，默认为16}
+
+\item{axis_title_size}{可视化结果标题字体大小，整型，选填，默认为16}
+
+\item{showerrordetail}{结果中错误样本是否显示具体数值，逻辑型（T or F)，选填，默认为T}
+
+\item{errordetail_color}{结果中错误样本的具体数值颜色，字符型，选填，默认为"black"}
+
+\item{numberdig}{结果中错误样本的具体数值保留小数位数，字符型，整型，选填，默认为3}
 }
 \value{
 
 }
 \description{
-中文
+质控指标整理
+}
+\examples{
+RawdataQC_standard(data=QC,xlab="library",ylab="gc_content",limit=45)
 }

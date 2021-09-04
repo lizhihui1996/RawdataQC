@@ -1,35 +1,33 @@
-#' 中文
+#' 质控指标整理
 #'
-#' @param data
-#' @param xlab
-#' @param ylab
-#' @param changelabname
-#' @param xlabname
-#' @param ylabname
-#' @param title
-#' @param titlename
-#' @param baralpha
-#' @param barwidth
-#' @param bar_pass_color
-#' @param bar_fail_color
-#' @param facet
-#' @param facet_label
-#' @param showsampletype
-#' @param sampletype_label
-#' @param showerror
-#' @param showsample
-#' @param limit
-#' @param limit_color
-#' @param limit_size
-#' @param axisx_size
-#' @param axisy_size
-#' @param text_size
-#' @param axis_title_size
-#' @param showerrordetail
-#' @param errordetail_color
-#' @param numberdig
-#' @param axisdetail_size
-#'
+#' @param data 样本质控结果表格，数据框，必填，具体格式参考QC数据
+#' @param xlab 可视化结果x轴，通常为样本，字符型，必填
+#' @param ylab 可视化结果y轴，通常为待检测的指标，字符型，必填
+#' @param changelabname 是否需要更改x轴，逻辑型（T or F)，选填，默认为F
+#' @param xlabname 可视化结果x轴的新名字，字符型，选填，默认为“”
+#' @param ylabname 可视化结果y轴的新名字，字符型，选填，默认为“”
+#' @param title 可视化结果是否需要标题，逻辑型（T or F)，选填，默认为F
+#' @param titlename 可视化结果标题，字符型，选填，默认为“”
+#' @param baralpha 可视化结果柱状图透明度，整型，选填，默认为0.5
+#' @param barwidth 可视化结果柱状图宽度，整型，选填，默认为0.8
+#' @param bar_pass_color 可视化结果柱状图中合格样本颜色，字符型，选填，默认为"#ACACAC"（灰色）
+#' @param bar_fail_color 可视化结果柱状图中合格样本颜色，字符型，选填，默认为"#D32F2E"（红色）
+#' @param facet 可视化结果是否需要分面，逻辑型（T or F)，选填，默认为F
+#' @param facet_label 可视化结果分面依据，字符型，如果facet=T，必填（如"batch"）
+#' @param showsampletype 可视化结果是否需要区分样本类型，逻辑型（T or F)，选填，默认为F
+#' @param sampletype_label 可视化结果是否区分样本类型的依据，字符型，如果showsampletype=T，必填（如"type"）
+#' @param showerror 可视化结果下是否需要整理整体结果，逻辑型（T or F)，选填，默认为F
+#' @param showsample 可视化结果的x轴内容是否显示，逻辑型（T or F)，选填，默认为F
+#' @param limit 指标阈值，整型，选填，默认为0，若不设置，所有样本均合格
+#' @param limit_color 指标阈线值颜色，字符型，选填，默认为"red"
+#' @param limit_size 指标阈线值宽度，整型，选填，默认为1
+#' @param axisx_size 可视化结果x轴字体大小，整型，选填，默认为12
+#' @param axisy_size 可视化结果y轴字体大小，整型，选填，默认为16
+#' @param axis_title_size 可视化结果标题字体大小，整型，选填，默认为16
+#' @param showerrordetail 结果中错误样本是否显示具体数值，逻辑型（T or F)，选填，默认为T
+#' @param errordetail_color 结果中错误样本的具体数值颜色，字符型，选填，默认为"black"
+#' @param numberdig 结果中错误样本的具体数值保留小数位数，字符型，整型，选填，默认为3
+#' @param axisdetail_size 可视化结果y轴字体大小，整型，选填，默认为16
 #' @import ggplot2
 #' @import ggthemes
 #' @import gridExtra
@@ -38,17 +36,17 @@
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples RawdataQC_standard(data=QC,xlab="library",ylab="gc_content",limit=45)
 RawdataQC_standard <- function(data = data, xlab = xlab, ylab = ylab,
-                                    changelabname = F, xlabname = xlabname, ylabname = ylabname,
-                                    title = F, titlename = titlename,
+                                    changelabname = F, xlabname = "", ylabname = "",
+                                    title = F, titlename = "",
                                     baralpha = 0.5, barwidth = 0.8,
                                     bar_pass_color = "#ACACAC", bar_fail_color = "#D32F2E",
                                     facet = F, facet_label = "batch",
                                     showsampletype = F, sampletype_label = "type",
                                     showerror = F, showsample = F,
-                                    limit = limit, limit_color = "red", limit_size = 1,
-                                    axisx_size = 12, axisy_size = 16,axisdetail_size=6,text_size = 20, axis_title_size = 16,
+                                    limit = 0, limit_color = "red", limit_size = 1,
+                                    axisx_size = 12, axisy_size = 16,axisdetail_size=6,axis_title_size = 16,
                                     showerrordetail = T, errordetail_color = "black", numberdig = 3) {
   ## Data Prep
   data[, which(colnames(data) == xlab)] <- factor(data[, which(colnames(data) == xlab)],

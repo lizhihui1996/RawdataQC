@@ -1,43 +1,44 @@
-#' Title
-#'
-#' @param data
-#' @param xlab
-#' @param var1
-#' @param var2
-#' @param var3
-#' @param limit_var1
-#' @param limit_var2
-#' @param limit_var3
-#' @param changelabname
-#' @param xlabname
-#' @param ylabname
-#' @param var1labname
-#' @param var2labname
-#' @param var3labname
-#' @param var3_color
-#' @param var2_color
-#' @param var1_color
-#' @param title
-#' @param titlename
-#' @param baralpha
-#' @param barwidth
-#' @param bar_pass_color
-#' @param bar_fail_color
-#' @param facet
-#' @param facet_label
-#' @param showerror
-#' @param showsample
-#' @param axisx_size
-#' @param axisy_size
-#' @param text_size
-#' @param axis_title_size
-#'
+#' 质控指标整理（比对区域）
+#' 
+#' @param data 样本质控结果表格，数据框，必填，具体格式参考QC数据
+#' @param xlab 可视化结果x轴，通常为样本，字符型，必填
+#' @param var1 堆叠图第一个变量名称，字符型，选填，默认为“exonic”
+#' @param var2 堆叠图第二个变量名称，字符型，选填，默认为“intronic”
+#' @param var3 堆叠图第三个变量名称，字符型，选填，默认为“intergenic”
+#' @param limit_var1 堆叠图第一个变量的阈值，整型，选填，默认为0.4
+#' @param limit_var2 堆叠图第二个变量的阈值，整型，选填，默认为0.3
+#' @param limit_var3 堆叠图第三个变量的阈值，整型，选填，默认为0
+#' @param changelabname 是否需要更改x轴，逻辑型（T or F)，选填，默认为F
+#' @param xlabname 可视化结果x轴的新名字，字符型，选填，默认为“”
+#' @param ylabname 可视化结果y轴的新名字，字符型，选填，默认为“”
+#' @param var1labname 堆叠图第一个变量在表格中的命名，字符型，选填，默认为"Exonic rate"
+#' @param var2labname 堆叠图第二个变量在表格中的命名，字符型，选填，默认为"Intronic rate"
+#' @param var3labname 堆叠图第三个变量在表格中的命名，字符型，选填，默认为"Intronic rate"
+#' @param var3_color 堆叠图第一个变量在图中的颜色，字符型，选填，默认为"#66C2A5"
+#' @param var2_color 堆叠图第二个变量在图中的颜色，字符型，选填，默认为"#FC8D62"
+#' @param var1_color 堆叠图第三个变量在图中的颜色，字符型，选填，默认为“#8DA0CA”
+#' @param title 可视化结果是否需要标题，逻辑型（T or F)，选填，默认为F
+#' @param titlename 可视化结果标题，字符型，选填，默认为“”
+#' @param baralpha 可视化结果柱状图透明度，整型，选填，默认为0.5
+#' @param barwidth 可视化结果柱状图宽度，整型，选填，默认为0.8
+#' @param bar_pass_color 可视化结果柱状图中合格样本颜色，字符型，选填，默认为"#ACACAC"（灰色）
+#' @param bar_fail_color 可视化结果柱状图中合格样本颜色，字符型，选填，默认为"#D32F2E"（红色）
+#' @param facet 可视化结果是否需要分面，逻辑型（T or F)，选填，默认为F
+#' @param facet_label 可视化结果分面依据，字符型，如果facet=T，必填（如"batch"）
+#' @param showerror 可视化结果下是否需要整理整体结果，逻辑型（T or F)，选填，默认为F
+#' @param showsample 可视化结果的x轴内容是否显示，逻辑型（T or F)，选填，默认为F
+#' @param axisx_size 可视化结果x轴字体大小，整型，选填，默认为12
+#' @param axisy_size 可视化结果y轴字体大小，整型，选填，默认为16
+#' @param axis_title_size 可视化结果标题字体大小，整型，选填，默认为16
 #' @import ggplot2
 #' @import ggthemes
 #' @import gridExtra
 #' @import ggsci
 #' @return
 #' @export
+#'
+#' @examples RawdataQC_stack(data=QC,xlab="library")
+
 
 RawdataQC_stack <- function(data = data, xlab = xlab,
                                  var1 = "exonic", var2 = "intronic", var3 = "intergenic",
@@ -50,7 +51,7 @@ RawdataQC_stack <- function(data = data, xlab = xlab,
                                  bar_pass_color = "#ACACAC", bar_fail_color = "#D32F2E",
                                  facet = F, facet_label = "batch",
                                  showerror = F, showsample = F,
-                                 axisx_size = 12, axisy_size = 16, text_size = 20, axis_title_size = 16) {
+                                 axisx_size = 12, axisy_size = 16, axis_title_size = 16) {
   ## Data Prep
   data$pass1 <- "PASS"
   data$pass1[data[, which(colnames(data) == var1)] < limit_var1] <- "FAIL"

@@ -2,7 +2,7 @@
 % Please edit documentation in R/RawdataQC_stack.R
 \name{RawdataQC_stack}
 \alias{RawdataQC_stack}
-\title{Title}
+\title{质控指标整理（比对区域）}
 \usage{
 RawdataQC_stack(
   data = data,
@@ -34,16 +34,76 @@ RawdataQC_stack(
   showsample = F,
   axisx_size = 12,
   axisy_size = 16,
-  text_size = 20,
   axis_title_size = 16
 )
 }
 \arguments{
-\item{axis_title_size}{}
+\item{data}{样本质控结果表格，数据框，必填，具体格式参考QC数据}
+
+\item{xlab}{可视化结果x轴，通常为样本，字符型，必填}
+
+\item{var1}{堆叠图第一个变量名称，字符型，选填，默认为“exonic”}
+
+\item{var2}{堆叠图第二个变量名称，字符型，选填，默认为“intronic”}
+
+\item{var3}{堆叠图第三个变量名称，字符型，选填，默认为“intergenic”}
+
+\item{limit_var1}{堆叠图第一个变量的阈值，整型，选填，默认为0.4}
+
+\item{limit_var2}{堆叠图第二个变量的阈值，整型，选填，默认为0.3}
+
+\item{limit_var3}{堆叠图第三个变量的阈值，整型，选填，默认为0}
+
+\item{changelabname}{是否需要更改x轴，逻辑型（T or F)，选填，默认为F}
+
+\item{xlabname}{可视化结果x轴的新名字，字符型，选填，默认为“”}
+
+\item{ylabname}{可视化结果y轴的新名字，字符型，选填，默认为“”}
+
+\item{var1labname}{堆叠图第一个变量在表格中的命名，字符型，选填，默认为"Exonic rate"}
+
+\item{var2labname}{堆叠图第二个变量在表格中的命名，字符型，选填，默认为"Intronic rate"}
+
+\item{var3labname}{堆叠图第三个变量在表格中的命名，字符型，选填，默认为"Intronic rate"}
+
+\item{var3_color}{堆叠图第一个变量在图中的颜色，字符型，选填，默认为"#66C2A5"}
+
+\item{var2_color}{堆叠图第二个变量在图中的颜色，字符型，选填，默认为"#FC8D62"}
+
+\item{var1_color}{堆叠图第三个变量在图中的颜色，字符型，选填，默认为“#8DA0CA”}
+
+\item{title}{可视化结果是否需要标题，逻辑型（T or F)，选填，默认为F}
+
+\item{titlename}{可视化结果标题，字符型，选填，默认为“”}
+
+\item{baralpha}{可视化结果柱状图透明度，整型，选填，默认为0.5}
+
+\item{barwidth}{可视化结果柱状图宽度，整型，选填，默认为0.8}
+
+\item{bar_pass_color}{可视化结果柱状图中合格样本颜色，字符型，选填，默认为"#ACACAC"（灰色）}
+
+\item{bar_fail_color}{可视化结果柱状图中合格样本颜色，字符型，选填，默认为"#D32F2E"（红色）}
+
+\item{facet}{可视化结果是否需要分面，逻辑型（T or F)，选填，默认为F}
+
+\item{facet_label}{可视化结果分面依据，字符型，如果facet=T，必填（如"batch"）}
+
+\item{showerror}{可视化结果下是否需要整理整体结果，逻辑型（T or F)，选填，默认为F}
+
+\item{showsample}{可视化结果的x轴内容是否显示，逻辑型（T or F)，选填，默认为F}
+
+\item{axisx_size}{可视化结果x轴字体大小，整型，选填，默认为12}
+
+\item{axisy_size}{可视化结果y轴字体大小，整型，选填，默认为16}
+
+\item{axis_title_size}{可视化结果标题字体大小，整型，选填，默认为16}
 }
 \value{
 
 }
 \description{
-Title
+质控指标整理（比对区域）
+}
+\examples{
+RawdataQC_stack(data=QC,xlab="library")
 }
