@@ -38,6 +38,9 @@ RawdataQC_stack(
   axis_title_size = 16
 )
 }
+\arguments{
+\item{axis_title_size}{}
+}
 \value{
 
 }

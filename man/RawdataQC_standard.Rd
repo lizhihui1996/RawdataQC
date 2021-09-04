@@ -36,6 +36,9 @@ RawdataQC_standard(
   numberdig = 3
 )
 }
+\arguments{
+\item{axisdetail_size}{}
+}
 \value{
 
 }

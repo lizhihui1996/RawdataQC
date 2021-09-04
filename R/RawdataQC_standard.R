@@ -29,6 +29,7 @@
 #' @param errordetail_color
 #' @param numberdig
 #' @param axisdetail_size
+#'
 #' @import ggplot2
 #' @import ggthemes
 #' @import gridExtra

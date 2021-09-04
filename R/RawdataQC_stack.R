@@ -31,6 +31,7 @@
 #' @param axisy_size
 #' @param text_size
 #' @param axis_title_size
+#'
 #' @import ggplot2
 #' @import ggthemes
 #' @import gridExtra
